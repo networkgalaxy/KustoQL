@@ -1,0 +1,7 @@
+// Use this query to query NSG logs for specific communication from Azure Log Analytics. More filters can be applied by adding column names from the output of this query.
+
+AzureNetworkAnalytics_CL
+| where NSGList_s contains "nsg-subnet-npe-app-001"
+| where SrcIP_s == "10.50.0.197"
+| where DestIP_s == "10.20.1.13"
+| where DestPort_d == "22"
